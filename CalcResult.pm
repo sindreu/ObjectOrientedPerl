@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+# This is a ResponseClass used for both the CLI and Web API
+
 package CalcResult;
 
 sub new
@@ -15,7 +17,7 @@ sub new
 }
 
 sub print_CLI {
-   # responsible for print in the CLI app
+   # responsible to print in the CLI app
    my( $self ) = @_;
    if ($self->{_error})
    {
@@ -27,8 +29,8 @@ sub print_CLI {
 }
 
 sub print_json {
-   # responsible for printing for the Web API
-   # this should be done using JSON library, but for this test I think it serves its purpose
+   # responsible to print in the Web API
+   # this should be done using JSON library for easier mantainance
 
    my( $self ) = @_;
    my $result = '{ "result": "'.$self->{_result}.'", "message": "'.$self->{_message}.'", "error": "'.$self->{_error}.'"}';

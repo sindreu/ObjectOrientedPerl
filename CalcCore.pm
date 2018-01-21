@@ -1,10 +1,16 @@
 #!/usr/bin/env perl
+# Main code with the implementation of the operations. 
+# It is not using directly OOP but it is using an Object CalcResult which it is.
+
 use Scalar::Util::Numeric qw(isint);
 use Scalar::Util qw(looks_like_number);
 use Getopt::Long;
 use CalcResult;
 
 sub add {
+   # adds a variable number of numbers and checks for errors. 
+   # returns an object CalcResult, containing a json, the result, human message and error code 
+
    my $n = scalar(@_);
    my $sum = 0, $error = 0;
 
@@ -24,6 +30,9 @@ sub add {
 
 
 sub multiply {
+   # multiplies a variable number of numbers. 
+   # returns an object CalcResult, containing a json, the result, human message and error code 
+
    my $n = scalar(@_);
    my $multiplication = 1, $error=0;
 
@@ -42,7 +51,10 @@ sub multiply {
 
 
 sub factorial {
-   # Factorial could use multiply, if it wasn't so simple
+   # Returns the factorial of an integer, and checks for other errors. 
+   # returns an object CalcResult, containing a json, the result, human message and error code 
+
+   # Factorial could use multiply
    my $n = $_[0];
    my $message="", $fact=1, $error=0;
 
@@ -64,6 +76,9 @@ sub factorial {
 
 
 sub substract {
+   # substracts only two numbers. Could actually reuse add if we wanted.
+   # returns an object CalcResult, containing a json, the result, human message and error code 
+
    my $n = scalar(@_);
    my $message, $substraction, $error;
 

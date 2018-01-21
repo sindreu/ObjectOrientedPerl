@@ -1,8 +1,13 @@
 #!/usr/bin/env perl
+# Main driver for the Web API. 
+# It uses json as a response format
+# Each end-point only takes 1 or two parameters, but most operations could easily be enhanced
+# to receive multiple parameters
 
 
 use CalcCore;
 use CalcResult;
+
 use Dancer;
 use Dancer::Plugin::REST;
 
@@ -27,4 +32,5 @@ get '/multiply/:num_a/:num_b' => sub {
     return multiply(params->{num_a}, params->{num_b})->json();
 };
 
+# start the webserver
 dance;

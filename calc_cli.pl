@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+# Main driver for the CLI version of the program
+# Uses GetOpts which makes the hard work of the help and option parsing through Command Line
 
 use CalcCore;
 
@@ -23,6 +25,7 @@ sub test {
 }
 
 sub help {
+  # Description of all options available in the program
   print "Options: \n\n";
   print "-h \nprint help\n\n";
   print "-t \n basic tests\n\n";
@@ -45,6 +48,7 @@ GetOptions("h"=>\$help,
             "divide2=f"=>\$divide2,
             "factorial=i"=>\$factorial);
 
+# Run all options that were introduced in the CLI
 help() if $help;
 test() if $test;
 add(@add)->print_CLI() if @add;
